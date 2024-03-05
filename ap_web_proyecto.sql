@@ -1,0 +1,121 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 05-03-2024 a las 05:01:52
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `ap_web_proyecto`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `pass` varchar(64) NOT NULL,
+  `estado` int(1) NOT NULL,
+  `id_grupo_usu` int(11) NOT NULL,
+  `user_activo` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `user`, `pass`, `estado`, `id_grupo_usu`, `user_activo`) VALUES
+(1, 'ACUÑA GALVEZ ELMER', 'EACUNA', '*32F969B350FB1AD0B14311E3B1F0BE8989C43D00', 0, 7, 0),
+(2, 'ALARCÓN TORO JULIO CÉSAR', 'JALARCON', '*8A3E81B8A089151BD5DE7C55A7EE69889AC4C5B7', 0, 1, 0),
+(3, 'ALBERCA CUBAS KEVIN', 'KALBERCA', '*434AF887CE025426C332246D060708436F1273CD', 0, 4, 0),
+(4, 'CAJUSOL VALDIVIEZO HENRY EDGAR', 'HCAJUSOL', '*D00255910A42494FEAE168BA3E4167CF7A7ACE03', 0, 2, 0),
+(5, 'CHINCHAY ARANCIBIA MALENA DEL ROSARIO', 'MCHINCHAY', '*F575AB04DAD5FF88F9F9D7DB7F2F74116E53BE91', 0, 3, 0),
+(6, 'CORNEJO ARCE MARYTHA LIZETH', 'MCORNEJO', '*FBE25A0AD2721BE5F666D2C681034102DC6B9091', 0, 3, 0),
+(7, 'GOMEZ JULCA MADELEINE YESSICA', 'MGOMEZ', '*D51030369144ED3064BCD59AF91AEAC2D4785406', 0, 4, 0),
+(8, 'HERNANDEZ MALCA HOMERO', 'HHOMERO', '*2F6E0197EC866EC5D1A3C707F89B6348806845A3', 0, 4, 0),
+(9, 'MEDINA ROBLES ESTANY YSABEL', 'EMEDINA', '*4F11670C4B98DB26ACC4ADB6E0DC8FFE41B9A3D3', 0, 5, 0),
+(10, 'PAZ CARRASCO RONALD IVAN', 'RPAZ', '*82D841630678C19ECEEAFE6CB98778D69E7E9022', 0, 5, 0),
+(11, 'PERALES CHAVEZ JEFFERSON ADRIAN', 'JPERALES', '*E8935EA28084BE7C5235B6C7100546260CE667F7', 0, 6, 0),
+(12, 'PURIHUAMÁN CÉSPEDES DAWER FLORIAN', 'DPURIHUAMAN', '*E4B807E75F81BE9CDF602EFEEA6994F3C8E16FD5', 0, 6, 0),
+(13, 'ROJAS HUAMAN MARÍA EVARISTA', 'MROJAS', '*44EBB3EF60D1035D0E139A4D2058E2ECE73CD886', 0, 7, 0),
+(14, 'SILVA BARBOZA ELGER ORLANDO', 'ESILVA', '*3B1E216FDB721417A451574097AD1A7ACDC39D3A', 0, 7, 0),
+(201, 'NORA ARCE CAMUS', 'NARCE', 'a4b89abdc932816c447586a33c8af12f', 0, 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario_grupo`
+--
+
+CREATE TABLE `usuario_grupo` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario_grupo`
+--
+
+INSERT INTO `usuario_grupo` (`id`, `nombre`) VALUES
+(1, 'ADMINISTRADOR'),
+(2, 'PROCESOS'),
+(3, 'CAJERO'),
+(4, 'CONTADOR'),
+(5, 'ADMINISTRACION'),
+(6, 'TOMA DE MUESTRA'),
+(7, 'VENTAS'),
+(9, 'ECOGRAFIAS');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuario_grupo`
+--
+ALTER TABLE `usuario_grupo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario_grupo`
+--
+ALTER TABLE `usuario_grupo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
